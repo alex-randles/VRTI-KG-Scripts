@@ -1,0 +1,70 @@
+{
+  "endpoint": "https://vrti-graph-explorer.adaptcentre.ie/sparql",
+  "timeout_seconds": 120,
+
+  "prefixes": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "crm": "http://erlangen-crm.org/current/"
+  },
+
+  "graphs": {
+    "people_graphs": [
+      "https://kg.virtualtreasury.ie/graph/DIB-v1",
+      "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+      "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+      "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+      "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1"
+    ],
+    "present_places_graphs": [
+      "https://kg.virtualtreasury.ie/graph/present-day-places-v1"
+    ],
+    "modern_places_graphs": [
+      "https://kg.virtualtreasury.ie/graph/present-day-places-v1"
+    ]
+  },
+
+  "selections": {
+    "PEOPLE_ONLY": ["people_graphs"],
+    "PRESENT_PLACES_ONLY": ["present_places_graphs"],
+    "PLACES_ONLY": ["modern_places_graphs", "present_places_graphs"],
+    "PEOPLE_PLUS_PLACES": ["people_graphs", "present_places_graphs"]
+  },
+
+  "defaults": {
+    "entity_count": {
+      "distinct": true,
+      "variable": "s",
+      "type_predicate": ["rdf:type", "crm:P2_has_type"]
+    }
+  },
+
+  "stats": [
+    {
+      "id": "total_triples",
+      "name": "Total Number of Triples",
+      "selection": "PEOPLE_PLUS_PLACES",
+      "type": null
+    },
+    {
+      "id": "total_places",
+      "name": "Total Number of Places",
+      "selection": "PRESENT_PLACES_ONLY",
+      "type": "crm:E53_Place"
+    },
+    {
+      "id": "total_people",
+      "name": "Total Number of People",
+      "selection": "PEOPLE_ONLY",
+      "type": "crm:E21_Person"
+    },
+
+    {
+      "id": "triples_special_case",
+      "name": "Triples (Override Example)",
+      "selection": "PEOPLE_ONLY",
+      "type": null,
+      "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(*) AS ?count)\nFROM <https://kg.virtualtreasury.ie/graph/DIB-v1>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?s))\n}"
+    }
+  ]
+}
