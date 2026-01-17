@@ -28,7 +28,8 @@
     "PEOPLE_ONLY": ["people_graphs"],
     "PRESENT_PLACES_ONLY": ["present_places_graphs"],
     "PLACES_ONLY": ["modern_places_graphs", "present_places_graphs"],
-    "PEOPLE_PLUS_PLACES": ["people_graphs", "present_places_graphs"]
+    "PEOPLE_PLUS_PLACES": ["people_graphs", "present_places_graphs"],
+      "ALL_GRAPHS": ["people_graphs", "present_places_graphs", "modern_places_graphs"]
   },
 
   "defaults": {
@@ -65,6 +66,15 @@
       "selection": "PEOPLE_ONLY",
       "type": null,
       "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(*) AS ?count)\nFROM <https://kg.virtualtreasury.ie/graph/DIB-v1>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?s))\n}"
-    }
+    },
+
+    {
+  "id": "distinct_resources",
+  "name": "Total Number of Distinct Resources",
+  "selection": "ALL_GRAPHS",
+  "type": null,
+  "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?s) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?s))\n}"
+}
+
   ]
 }

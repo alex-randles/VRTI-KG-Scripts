@@ -123,7 +123,8 @@ def main():
 
         for graph in graphs:
             if "query_override" in stat:
-                query = stat["query_override"]
+                override = stat["query_override"]
+                query = override.replace("{GRAPH}", graph)
             else:
                 query = build_count_query(
                     prefixes=prefixes,
