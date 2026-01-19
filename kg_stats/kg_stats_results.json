@@ -1,0 +1,184 @@
+{
+  "endpoint": "https://vrti-graph-explorer.adaptcentre.ie/sparql",
+  "generated_utc": "2026-01-19T04:27:21.663460+00:00",
+  "stats": [
+    {
+      "id": "total_triples",
+      "name": "Total Number of Triples",
+      "selection": "PEOPLE_PLUS_PLACES",
+      "type": null,
+      "total": 3000061,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
+          "count": 524982
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+          "count": 27767
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+          "count": 25770
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+          "count": 2701
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
+          "count": 7552
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/present-day-places-v1",
+          "count": 2411289
+        }
+      ]
+    },
+    {
+      "id": "total_places",
+      "name": "Total Number of Places",
+      "selection": "PRESENT_PLACES_ONLY",
+      "type": "crm:E53_Place",
+      "total": 64790,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/present-day-places-v1",
+          "count": 64790
+        }
+      ]
+    },
+    {
+      "id": "total_people",
+      "name": "Total Number of People",
+      "selection": "PEOPLE_ONLY",
+      "type": "crm:E21_Person",
+      "total": 12969,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
+          "count": 10624
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+          "count": 958
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+          "count": 1100
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+          "count": 57
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
+          "count": 230
+        }
+      ]
+    },
+    {
+      "id": "triples_special_case",
+      "name": "Triples (Override Example)",
+      "selection": "PEOPLE_ONLY",
+      "type": null,
+      "total": 2624910,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
+          "count": 524982
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+          "count": 524982
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+          "count": 524982
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+          "count": 524982
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
+          "count": 524982
+        }
+      ]
+    },
+    {
+      "id": "distinct_resources",
+      "name": "Total Number of Distinct Resources",
+      "selection": "ALL_GRAPHS",
+      "type": null,
+      "total": 522857,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
+          "count": 101144
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+          "count": 5470
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+          "count": 4244
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+          "count": 550
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
+          "count": 1468
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/present-day-places-v1",
+          "count": 409981
+        }
+      ]
+    },
+    {
+      "id": "open_cloud_external_subjects",
+      "name": "Total Number of External Open Cloud Subjects",
+      "selection": "ALL_GRAPHS",
+      "type": null,
+      "total": 14688,
+      "per_graph": [
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
+          "count": 13883
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
+          "count": 1
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
+          "count": 1
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
+          "count": 7
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
+          "count": 6
+        },
+        {
+          "graph": "https://kg.virtualtreasury.ie/graph/present-day-places-v1",
+          "count": 790
+        }
+      ]
+    },
+    {
+      "id": "ontology_named_individuals",
+      "name": "Ontology Named Individuals (WIDOCO)",
+      "selection": null,
+      "type": "owl:NamedIndividual",
+      "total": 138,
+      "per_graph": []
+    }
+  ]
+}
