@@ -1,6 +1,6 @@
 {
   "endpoint": "https://vrti-graph-explorer.adaptcentre.ie/sparql",
-  "timeout_seconds": 120,
+  "timeout_seconds": 1000,
 
   "prefixes": {
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -74,7 +74,24 @@
   "selection": "ALL_GRAPHS",
   "type": null,
   "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?s) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?s))\n}"
+},
+    {
+  "id": "open_cloud_external_links",
+  "name": "Total Number of External Open Cloud Links",
+  "selection": "ALL_GRAPHS",
+  "type": null,
+  "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?o) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?o))\n  FILTER(!CONTAINS(LCASE(STR(?o)), \"virtualtreasury\"))\n}"
+},
+
+
+    {
+  "id": "ontology_named_individuals",
+  "name": "Ontology Named Individuals (WIDOCO)",
+  "selection": null,
+  "type": null,
+  "ontology_url": "https://www.w3id.org/virtual-treasury/ontology"
 }
+
 
   ]
 }

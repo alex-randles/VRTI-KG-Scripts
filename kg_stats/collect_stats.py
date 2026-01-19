@@ -4,6 +4,9 @@ from datetime import datetime, timezone
 from typing import Dict, List, Any
 
 from SPARQLWrapper import SPARQLWrapper, JSON
+import requests
+from rdflib import Graph
+
 
 from output_stats import create_output_csv
 
@@ -110,6 +113,21 @@ def main():
     }
 
     for stat in cfg["stats"]:
+
+        # --- WIDOCO / static ontology stats ---
+        if "ontology_url" in stat:
+            count = count_named_individuals_from_widoco(stat["ontology_url"])
+            results["stats"].append({
+                "id": stat["id"],
+                "name": stat["name"],
+                "selection": None,
+                "type": "owl:NamedIndividual",
+                "total": count,
+                "per_graph": []
+            })
+            continue
+
+
         stat_result = {
             "id": stat["id"],
             "name": stat["name"],
@@ -149,6 +167,27 @@ def main():
         json.dump(results, f, indent=2)
 
     print(f"Wrote results to {args.out}")
+
+
+def count_named_individuals_from_widoco(ontology_url: str) -> int:
+    headers = {"Accept": "application/rdf+xml"}
+    response = requests.get(ontology_url, timeout=30)
+    response.raise_for_status()
+
+    g = Graph()
+    g.parse(data=response.text, format="xml")
+
+    query = """
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    SELECT (COUNT(DISTINCT ?c) AS ?count)
+    WHERE {
+        ?c a owl:NamedIndividual .
+    }
+    """
+
+    for row in g.query(query):
+        return int(row["count"])
+    return 0
 
 
 if __name__ == "__main__":
