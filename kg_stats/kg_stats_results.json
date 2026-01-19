@@ -1,6 +1,6 @@
 {
   "endpoint": "https://vrti-graph-explorer.adaptcentre.ie/sparql",
-  "generated_utc": "2026-01-19T04:27:21.663460+00:00",
+  "generated_utc": "2026-01-19T04:31:07.297415+00:00",
   "stats": [
     {
       "id": "total_triples",
@@ -140,35 +140,35 @@
       ]
     },
     {
-      "id": "open_cloud_external_subjects",
-      "name": "Total Number of External Open Cloud Subjects",
+      "id": "open_cloud_external_resources",
+      "name": "Total Number of External Open Cloud Resources (Subjects + Objects)",
       "selection": "ALL_GRAPHS",
       "type": null,
-      "total": 14688,
+      "total": 240917,
       "per_graph": [
         {
           "graph": "https://kg.virtualtreasury.ie/graph/DIB-v1",
-          "count": 13883
+          "count": 23587
         },
         {
           "graph": "https://kg.virtualtreasury.ie/graph/VOICES-1641-v1",
-          "count": 1
+          "count": 21
         },
         {
           "graph": "https://kg.virtualtreasury.ie/graph/VOICES-freewomen-v1",
-          "count": 1
+          "count": 20
         },
         {
           "graph": "https://kg.virtualtreasury.ie/graph/VOICES-Prob11-v1",
-          "count": 7
+          "count": 34
         },
         {
           "graph": "https://kg.virtualtreasury.ie/graph/VOICES-staple-v1",
-          "count": 6
+          "count": 26
         },
         {
           "graph": "https://kg.virtualtreasury.ie/graph/present-day-places-v1",
-          "count": 790
+          "count": 217229
         }
       ]
     },

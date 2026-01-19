@@ -75,13 +75,15 @@
   "type": null,
   "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?s) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?s))\n}"
 },
-    {
-  "id": "open_cloud_external_links",
-  "name": "Total Number of External Open Cloud Links",
+{
+  "id": "open_cloud_external_resources",
+  "name": "Total Number of External Open Cloud Resources (Subjects + Objects)",
   "selection": "ALL_GRAPHS",
   "type": null,
-  "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?o) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  ?s ?p ?o .\n  FILTER(isIRI(?o))\n  FILTER(!CONTAINS(LCASE(STR(?o)), \"virtualtreasury\"))\n}"
+  "query_override": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT (COUNT(DISTINCT ?res) AS ?count)\nFROM <{GRAPH}>\nWHERE {\n  {\n    ?res ?p ?o .\n    FILTER(isIRI(?res))\n  }\n  UNION\n  {\n    ?s ?p ?res .\n    FILTER(isIRI(?res))\n  }\n  FILTER(!CONTAINS(LCASE(STR(?res)), \"virtualtreasury\"))\n}"
 },
+
+
 
 
     {
