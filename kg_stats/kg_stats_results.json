@@ -1,6 +1,6 @@
 {
   "endpoint": "https://vrti-graph-explorer.adaptcentre.ie/sparql",
-  "generated_utc": "2026-01-19T04:31:07.297415+00:00",
+  "generated_utc": "2026-01-19T09:43:58.834226+00:00",
   "stats": [
     {
       "id": "total_triples",
